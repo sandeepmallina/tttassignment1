@@ -115,15 +115,17 @@ a {
   flex-direction: row;
   /* border-bottom: 2px solid gray; */
 }
-nav ul li:nth-child(1) a {
-  color: #1d1d1d;
-  font-weight: 600;
+.right__nav {
+  color: red;
 }
+
 .active {
   border: 2px solid gray;
   padding: 3px 3px 5px 3px;
   border-radius: 3px;
   border-bottom: none;
+  color: #1d1d1d;
+  font-weight: 600;
 }
 
 .post__container {
@@ -152,6 +154,7 @@ nav ul li:nth-child(1) a {
   justify-content: space-between;
 }
 .post_type {
+  cursor: pointer;
   color: #46c2cb;
 }
 .post_stats {

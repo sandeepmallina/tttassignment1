@@ -21,6 +21,7 @@
 }
 .nav-logo-container {
   display: flex;
+  cursor: pointer;
 }
 .nav-logo {
   height: 50px;

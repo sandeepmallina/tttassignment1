@@ -4,6 +4,11 @@ import { FaCheckCircle } from "react-icons/fa";
 import { data } from "../../data";
 import { AiFillLike } from "react-icons/ai";
 import { FaEye, FaHeart, FaStar } from "react-icons/fa";
+import Posts from "./Posts";
+import { NavLink, Route, Routes } from "react-router-dom";
+import Gallary from "./Gallary";
+import Notfound from "./Notfound";
+
 function Home() {
   const stars = data[0].Stars;
   const CountOfPosts = data[0].CountOfPosts;
@@ -12,7 +17,6 @@ function Home() {
   const Followers = data[0].Followers;
   const Following = data[0].Following;
   const Likes = data[0].Likes;
-  const posts = data[0].Posts;
 
   return (
     <div className="home__container">
@@ -60,46 +64,30 @@ function Home() {
           </div>
           <div className="right__col">
             <nav>
-              <ul className="">
-                <li className="active">
-                  <a href="/">{CountOfPosts} Posts</a>
-                </li>
+              <ul>
                 <li>
-                  <a href="/">galleries</a>
+                  <NavLink
+                    to="/posts"
+                    className={({ isActive }) => (isActive ? "active" : " ")}
+                  >
+                    {CountOfPosts} Posts
+                  </NavLink>
                 </li>
-                <li>
-                  <a href="/">groups</a>
-                </li>
-                <li>
-                  <a href="/">about</a>
+                <li cl>
+                  <NavLink
+                    to="/gallary"
+                    className={({ isActive }) => (isActive ? "active" : " ")}
+                  >
+                    galleries
+                  </NavLink>
                 </li>
               </ul>
             </nav>
-
-            <div class="posts">
-              {posts.map((post, index) => (
-                <div className="post__container" key={index}>
-                  <div className="post_header">
-                    <h1>{post.Title}</h1>
-                    <AiFillLike size="25px" color="#fce323" />
-                  </div>
-                  <div className="post_body">{post.Body}</div>
-                  <div className="post_footer">
-                    <p>
-                      <span className="post_type">{post.Type}</span> by{" "}
-                      {post.PostedBy}
-                    </p>
-
-                    <p className="post_stats">
-                      {post.TimeStats.Month} {post.TimeStats.Date}{" "}
-                      <span>.</span> {post.TimeStats.TimeToRead} Read{" "}
-                      <span>.</span> {post.TimeStats.NumberOfViews}
-                      Views
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <Routes>
+              <Route path="/posts" element={<Posts />} />
+              <Route path="/gallary" element={<Gallary />} />
+              <Route path="*" element={<Notfound />} />
+            </Routes>
           </div>
         </div>
       </div>
