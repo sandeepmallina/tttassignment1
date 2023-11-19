@@ -1,0 +1,191 @@
+.home__container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+.header__wrapper header {
+  width: 100%; /* Set background color separately */
+  background-image: url("https://e1.pxfuel.com/desktop-wallpaper/476/204/desktop-wallpaper-seine-river-and-seine.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 20%;
+  background-size: cover;
+  min-height: calc(100px + 15vw);
+}
+.left__col p {
+  cursor: pointer;
+  color: #46c2cb;
+}
+.left__col {
+  padding: 25px 20px;
+  text-align: center;
+  max-width: 350px;
+  position: relative;
+  margin: 0 auto;
+}
+.img__container {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translatex(-50%);
+}
+.img__container img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  box-shadow: 1px 3px 12px rgba(0, 0, 0, 0.18);
+}
+
+.left__col h2 {
+  margin-top: 100px;
+  font-weight: 600;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.about,
+.stats {
+  justify-content: space-evenly;
+  position: relative;
+  margin: 35px 0;
+}
+.stats li {
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+}
+
+.about li {
+  display: flex;
+  flex-direction: column;
+  color: #818181;
+  font-size: 0.9rem;
+}
+.about li span {
+  color: #1d1d1d;
+  font-weight: 600;
+  border: 2px solid gray;
+  border-radius: 5px;
+}
+.about:after {
+  position: absolute;
+  content: "";
+  bottom: -16px;
+  display: block;
+  background: #cccccc;
+  height: 1px;
+  width: 100%;
+}
+.right__col {
+  margin-left: 10px;
+}
+
+.right__col nav {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  height: 30px;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.right__col nav ul {
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+  /* border-bottom: 2px solid gray; */
+}
+nav ul li:nth-child(1) a {
+  color: #1d1d1d;
+  font-weight: 600;
+}
+.active {
+  border: 2px solid gray;
+  padding: 3px 3px 5px 3px;
+  border-radius: 3px;
+  border-bottom: none;
+}
+
+.post__container {
+  padding-right: 10px;
+  border-bottom: 2px solid rgb(208, 206, 206);
+}
+.post_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.post_header h1 {
+  margin-top: 40px;
+  font-size: 25px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+}
+.post_body {
+  line-height: 30px;
+}
+
+.post_footer {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.post_type {
+  color: #46c2cb;
+}
+.post_stats {
+  color: rgb(208, 206, 206);
+}
+@media (min-width: 868px) {
+  .header__wrapper .cols__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 90%;
+    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 50px;
+  }
+  .right__col nav ul {
+    flex-direction: row;
+    gap: 30px;
+  }
+  .left__col {
+    padding: 25px 0px;
+  }
+}
+
+@media (min-width: 1017px) {
+  .left__col {
+    margin: 0;
+    margin-right: auto;
+  }
+  .right__col nav {
+    flex-direction: row;
+  }
+  .left__col {
+    margin: 0;
+    margin-right: auto;
+  }
+}
