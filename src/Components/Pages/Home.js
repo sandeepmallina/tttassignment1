@@ -1,9 +1,8 @@
 import React from "react";
 import "./Home.css";
-import { FaCheckCircle } from "react-icons/fa";
 import { data } from "../../data";
 import { AiFillLike } from "react-icons/ai";
-import { FaEye, FaHeart, FaStar } from "react-icons/fa";
+import { FaEye, FaHeart, FaStar, FaCheckCircle } from "react-icons/fa";
 import Posts from "./Posts";
 import { NavLink, Route, Routes } from "react-router-dom";
 import Gallary from "./Gallary";
