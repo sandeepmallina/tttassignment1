@@ -1,12 +1,21 @@
 import React from "react";
 import { AiFillLike } from "react-icons/ai";
 import { data } from "../../data";
+import { useSpring, animated } from "@react-spring/web";
 function Posts() {
+  const springs = useSpring({
+    from: { y: 100 },
+    to: { y: 0 },
+  });
   const posts = data[0].Posts;
   return (
     <div class="posts">
       {posts.map((post, index) => (
-        <div className="post__container" key={index}>
+        <animated.div
+          className="post__container"
+          style={{ ...springs }}
+          key={index}
+        >
           <div className="post_header">
             <h1>{post.Title}</h1>
             <AiFillLike size="25px" color="#fce323" />
@@ -24,7 +33,7 @@ function Posts() {
               Views
             </p>
           </div>
-        </div>
+        </animated.div>
       ))}
     </div>
   );
