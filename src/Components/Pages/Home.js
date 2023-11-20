@@ -8,6 +8,7 @@ import Posts from "./Posts";
 import { NavLink, Route, Routes } from "react-router-dom";
 import Gallary from "./Gallary";
 import Notfound from "./Notfound";
+import profile from "../../assets/profile.jpg";
 
 function Home() {
   const stars = data[0].Stars;
@@ -25,10 +26,7 @@ function Home() {
         <div className="cols__container">
           <div className="left__col">
             <div className="img__container">
-              <img
-                src="https://pbs.twimg.com/profile_images/1148507476578275328/fsrvymGR_400x400.jpg"
-                alt="Anuj Gosalia"
-              />
+              <img src={profile} alt="Anuj Gosalia" />
             </div>
             <h2>
               Anuj Gosalia <FaCheckCircle color="green" />

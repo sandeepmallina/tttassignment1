@@ -1,18 +1,14 @@
 import React from "react";
 import "./NavBar.css";
 
+import tttlogo from "../../assets/tttlogo.jpg";
 function NavBar() {
   return (
     <>
       <nav className="navbar">
         <div className="nav-container">
           <div className="nav-logo-container">
-            <img
-              className="nav-logo"
-              src="https://i.pinimg.com/280x280_RS/45/13/ed/4513ede75c1139af511c64152c953907.jpg"
-              alt=""
-              srcset=""
-            />
+            <img className="nav-logo" src={tttlogo} alt="" srcset="" />
             <div className="nav-page-line"></div>
             <span className="nav-page">STORIES</span>
           </div>

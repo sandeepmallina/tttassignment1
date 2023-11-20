@@ -9,7 +9,7 @@
 
 .header__wrapper header {
   width: 100%; /* Set background color separately */
-  background-image: url("https://e1.pxfuel.com/desktop-wallpaper/476/204/desktop-wallpaper-seine-river-and-seine.jpg");
+  background-image: url("../../assets/bg.jpg");
   background-repeat: no-repeat;
   background-position: 50% 20%;
   background-size: cover;
