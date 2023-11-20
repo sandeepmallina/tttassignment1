@@ -1,11 +1,16 @@
 import React from "react";
-import { useSpring, animated } from "@react-spring/web";
+import {
+  useTransition,
+  animated,
+  useSpringRef,
+  useChain,
+} from "@react-spring/web";
 import "./Gallary.css";
 function Gallary() {
-  const springs = useSpring({
-    from: { y: 100 },
-    to: { y: 0 },
-  });
+  // const springs = useSpring({
+  //   from: { y: 100 },
+  //   to: { y: 0 },
+  // });
   const pictures = [
     {
       id: 1,
@@ -43,14 +48,25 @@ function Gallary() {
       alt: "post-7",
     },
   ];
+  const transApi = useSpringRef();
+  const transition = useTransition(pictures, {
+    // from: { y: 100 },
+    //   to: { y: 0 },
+    ref: transApi,
+    trail: 400 / pictures.length,
+    from: { opacity: 0, y: 100 },
+    enter: { opacity: 1, y: 0 },
+    leave: { opacity: 0, y: 0 },
+  });
+  useChain([transApi], [0]);
   return (
-    <animated.div class="photos" style={{ ...springs }}>
-      {pictures.map((pic) => (
-        <div key={pic.id}>
-          <img src={pic.src} alt={pic.alt} />
-        </div>
+    <div class="photos">
+      {transition((style, item) => (
+        <animated.div style={{ ...style }}>
+          <img src={item.src} alt={item.alt} loading="lazy" />
+        </animated.div>
       ))}
-    </animated.div>
+    </div>
   );
 }
 
