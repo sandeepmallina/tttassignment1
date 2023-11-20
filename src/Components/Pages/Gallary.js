@@ -6,6 +6,13 @@ import {
   useChain,
 } from "@react-spring/web";
 import "./Gallary.css";
+import image1 from "../../assets/image1.avif";
+import image2 from "../../assets/image2.jpg";
+import image3 from "../../assets/image3.webp";
+import image4 from "../../assets/image4.jpg";
+import image5 from "../../assets/image5.avif";
+import image6 from "../../assets/image6.jpg";
+import image7 from "../../assets/image7.jpg";
 function Gallary() {
   // const springs = useSpring({
   //   from: { y: 100 },
@@ -14,37 +21,37 @@ function Gallary() {
   const pictures = [
     {
       id: 1,
-      src: "https://gumlet.assettype.com/homegrown%2Fimport%2F42022-Below-TTT.jpg",
+      src: image1,
       alt: "post-1",
     },
     {
       id: 2,
-      src: "https://shubh25.weebly.com/uploads/3/8/8/7/38873647/319623_orig.jpg",
+      src: image2,
       alt: "post-2",
     },
     {
       id: 3,
-      src: "https://a.cdn-hotels.com/gdcs/production17/d1366/9035a01f-643f-4710-80ff-0299e936494e.jpg?impolicy=fcrop&w=800&h=533&q=medium",
+      src: image3,
       alt: "post-3",
     },
     {
       id: 4,
-      src: "https://www.tripsavvy.com/thmb/TCx1SmJXEUJeBNccByacnNJPcmQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/TAM_1821-beb64d32d22c4fccb1c2cb5342e1ec36.jpg",
+      src: image4,
       alt: "post-4",
     },
     {
       id: 5,
-      src: "https://raw.githubusercontent.com/programmercloud/responsive-profile-page/main/img/img_1.avif",
+      src: image5,
       alt: "post-5",
     },
     {
       id: 6,
-      src: "https://www.buzzincontent.com/uploads/large/TTT.jpg",
+      src: image6,
       alt: "post-6",
     },
     {
       id: 7,
-      src: "https://i.pinimg.com/originals/0d/f4/26/0df42622ca91cd2ee2e23881e071c4be.jpg",
+      src: image7,
       alt: "post-7",
     },
   ];
