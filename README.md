@@ -1,70 +1,103 @@
-# Getting Started with Create React App
+# Hosted Link : https://terriblytinytales-profile-page.netlify.app
+### Libraries Used
+1.The `react-spring` library serves the purpose of enabling transitions for React components.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+2.For icons within React applications utilized the `react-icons` library.
 
-## Available Scripts
+3.`react-router-dom` facilitates navigation within applications by utilizing components such as BrowserRouter, Routes, Route, and NavLink.
 
-In the project directory, you can run:
+ ### Components
+ - Navbar: `NavBar` is the compnent containing navigation bar 
+* Home :`Home` this components contains the user information like followers,follwing ,other handles.
++ Posts: `Post` this components contains the posts posted by the user that posts where extracted form the array of objects locally.Here with help of react-spring i implemented the smooth transition of loading the elements
+ - gallery : `gallery` this contains the pictures that was posted by the user
+   
+The `<Routes>` component is a part of React Router, used for defining the different routes with in  application. Inside it, there are three `<Route>` components:
 
-### `npm start`
+`<Route path="/posts" element={<Posts />} />`: This sets up a route that corresponds to the URL path "/posts" and renders the <Posts /> component when this path is matched.
+`<Route path="/gallary" element={<Gallery />} />`:  this sets up a route for the "/gallery" path and renders the <Gallery /> component when this path is matched.
+`<Route path="*" element={<Notfound />} />`: This route matches any path that hasn't been defined previously. It's often used as a catch-all for showing a "Not Found" or error page, rendering the <Notfound /> component when no other routes match.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- The `<NavLink>` component is a part of React Router that helps create navigation links. In this case, it's creating a link to the "/posts" path. The to="/posts" attribute specifies where the link should navigate to when clicked (in this case, the "/posts" path).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Data Storage 
+Used `array of objects ` to store the retrive the data .the using `map()` function render posts in `<Posts/>` component.the `map()` function on the posts array.
+- The `map()` function in JavaScript is used to iterate through each element of an array. In this case, for each post in the posts array, it seems to be performing some operation or rendering based on the code that follows this snippet  
+## This  structure of the data that is stored locally 
+```
+export const data = [
+  {
+    Followers: 6482,
+    Following: 245,
+    Stars: 125,
+    Likes: 12,
+    Views: 57.8,
+    Favoutites: 26.0,
+    CountOfPosts: 134,
+    Posts: [
+      {
+        Title: "A Changing World Order",
+        Body: "The world is changing at feverish pace friends and colleagues and everyone engaged in knowledge work or beginning to sense this including ....",
+        Type: "musing",
+        PostedBy: "anujgosalia",
+        TimeStats: {
+          Month: "August",
+          Date: "2",
+          TimeToRead: "5 mins",
+          NumberOfViews: 500,
+        },
+      },
+    ],
+  },
+];
+```
 
-### `npm test`
+### Aninamtions using react-spring
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+  const transApi = useSpringRef();
+  const transition = useTransition(pictures, {
+    // from: { y: 100 },
+    //   to: { y: 0 },
+    ref: transApi,
+    trail: 400 / pictures.length,
+    from: { opacity: 0, y: 100 },
+    enter: { opacity: 1, y: 0 },
+    leave: { opacity: 0, y: 0 },
+  });
+```
 
-### `npm run build`
+### 1. Hooks used from react-spring
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- `useSpringRef()` creates a reference that can be passed to the useTransition() hook.
+- `useTransition()` is used to animate a list of items.
+### 2. transition Object
+The transition object is created using useTransition():
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- `pictures`: It seems to be an array of items to animate.
+- `ref`: transApi: It's using a reference transApi created by useSpringRef().
+- `trail`: 400 / pictures.length: Specifies the spacing between individual animations.
+- `from`: Initial style properties of the animated elements (opacity: 0, y: 100).
+- `enter`: Style properties when elements enter the view (opacity: 1, y: 0).
+- `leave`: Style properties when elements leave the view (opacity: 0, y: 0).
+### 3. transition() Function
+```
+  <div class="photos">
+      {transition((style, item) => (
+        <animated.div style={{ ...style }}>
+          <img src={item.src} alt={item.alt} loading="lazy" />
+        </animated.div>
+      ))}
+    </div>
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This function is used to render the animated elements based on the transition object:
 
-### `npm run eject`
+It takes a function that receives style (the animated styles) and item (each item from pictures).
+Inside the function, it renders an <animated.div> using style from react-spring.
+Inside the <animated.div>, it renders an <img> element with src and alt attributes taken from each item in the pictures array. The loading="lazy" attribute is used for lazy loading images.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+ 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
