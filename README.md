@@ -92,11 +92,10 @@ The transition object is created using useTransition():
 
 This function is used to render the animated elements based on the transition object:
 
-It takes a function that receives style (the animated styles) and item (each item from pictures).
-Inside the function, it renders an <animated.div> using style from react-spring.
-Inside the <animated.div>, it renders an <img> element with src and alt attributes taken from each item in the pictures array. The loading="lazy" attribute is used for lazy loading images.
+- It takes a function that receives style (the animated styles) and item (each item from pictures).
+- Inside the function, it renders an <animated.div> using style from react-spring.
+- Inside the <animated.div>, it renders an <img> element with src and alt attributes taken from each item in the pictures array. The loading="lazy" attribute is used for lazy loading images.
 
-=======
 
  
 
