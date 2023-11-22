@@ -52,52 +52,6 @@ export const data = [
 ];
 ```
 
-### Aninamtions using react-spring
-
-```
-  const transApi = useSpringRef();
-  const transition = useTransition(pictures, {
-    // from: { y: 100 },
-    //   to: { y: 0 },
-    ref: transApi,
-    trail: 400 / pictures.length,
-    from: { opacity: 0, y: 100 },
-    enter: { opacity: 1, y: 0 },
-    leave: { opacity: 0, y: 0 },
-  });
-```
-
-### 1. Hooks used from react-spring
-
-- `useSpringRef()` creates a reference that can be passed to the useTransition() hook.
-- `useTransition()` is used to animate a list of items.
-### 2. transition Object
-The transition object is created using useTransition():
-
-- `pictures`: It seems to be an array of items to animate.
-- `ref`: transApi: It's using a reference transApi created by useSpringRef().
-- `trail`: 400 / pictures.length: Specifies the spacing between individual animations.
-- `from`: Initial style properties of the animated elements (opacity: 0, y: 100).
-- `enter`: Style properties when elements enter the view (opacity: 1, y: 0).
-- `leave`: Style properties when elements leave the view (opacity: 0, y: 0).
-### 3. transition() Function
-```
-  <div class="photos">
-      {transition((style, item) => (
-        <animated.div style={{ ...style }}>
-          <img src={item.src} alt={item.alt} loading="lazy" />
-        </animated.div>
-      ))}
-    </div>
-```
-
-This function is used to render the animated elements based on the transition object:
-
-It takes a function that receives style (the animated styles) and item (each item from pictures).
-Inside the function, it renders an <animated.div> using style from react-spring.
-Inside the <animated.div>, it renders an <img> element with src and alt attributes taken from each item in the pictures array. The loading="lazy" attribute is used for lazy loading images.
-
- 
 
  
 
